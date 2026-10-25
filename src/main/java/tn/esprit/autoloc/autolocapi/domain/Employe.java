@@ -1,5 +1,6 @@
 package tn.esprit.autoloc.autolocapi.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -27,7 +28,7 @@ public class Employe {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 20)
     private RoleEmploye role;
-
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     private Agence agence;
 }

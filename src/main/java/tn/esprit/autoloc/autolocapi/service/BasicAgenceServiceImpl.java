@@ -33,7 +33,7 @@ public class BasicAgenceServiceImpl implements IAgenceService {
 
     @Override
     public Agence findById(Long id) {
-        return repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Agence " , id.toString()));
+        return repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Agence "));
     }
 
     @Override

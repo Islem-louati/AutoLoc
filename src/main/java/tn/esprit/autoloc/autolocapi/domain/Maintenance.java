@@ -1,5 +1,6 @@
 package tn.esprit.autoloc.autolocapi.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -28,6 +29,7 @@ public class Maintenance {
 
     @Column(nullable = false, length = 255)
     private String description;
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     private Vehicule vehicule;
 }

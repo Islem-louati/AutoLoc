@@ -1,5 +1,6 @@
 package tn.esprit.autoloc.autolocapi.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -30,7 +31,7 @@ public class Paiement {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 20)
     private ModePaiement modePaiement;
-
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     private Contrat contrat;
 }

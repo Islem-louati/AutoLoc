@@ -1,7 +1,7 @@
 package tn.esprit.autoloc.autolocapi.service;
 
-import jakarta.persistence.EntityNotFoundException;
 import org.springframework.data.jpa.repository.JpaRepository;
+import tn.esprit.autoloc.autolocapi.exception.ResourceNotFoundException;
 
 import java.util.List;
 
@@ -13,14 +13,12 @@ public abstract class GenericServiceImpl<T, ID> implements IGenericService<T, ID
         this.repository = repository;
     }
 
-    // Méthodes abstraites demandées par l'énoncé
     protected abstract String getEntityName();
 
     protected abstract ID getId(T entity);
 
     protected abstract void setFields(T source, T target);
 
-    // Validation par défaut : les services concrets la redéfinissent
     @Override
     public boolean check(T entity, boolean isNew) {
         return entity != null;
@@ -40,7 +38,7 @@ public abstract class GenericServiceImpl<T, ID> implements IGenericService<T, ID
     @Override
     public T findById(ID id) {
         return repository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException(getEntityName() + " introuvable avec l'id " + id));
+                .orElseThrow(() -> new ResourceNotFoundException(getEntityName() + " introuvable avec l'id " + id));
     }
 
     @Override
@@ -61,7 +59,7 @@ public abstract class GenericServiceImpl<T, ID> implements IGenericService<T, ID
     @Override
     public void deleteById(ID id) {
         if (!repository.existsById(id)) {
-            throw new EntityNotFoundException(getEntityName() + " introuvable avec l'id " + id);
+            throw new ResourceNotFoundException(getEntityName() + " introuvable avec l'id " + id);
         }
         repository.deleteById(id);
     }
