@@ -4,6 +4,7 @@ import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import tn.esprit.autoloc.autolocapi.Utils;
+import tn.esprit.autoloc.autolocapi.calcul.VehiculeOffre;
 import tn.esprit.autoloc.autolocapi.domain.Agence;
 import tn.esprit.autoloc.autolocapi.exception.ResourceNotFoundException;
 import tn.esprit.autoloc.autolocapi.repository.IAgenceRepository;
@@ -68,5 +69,9 @@ public class BasicAgenceServiceImpl implements IAgenceService {
     @Override
     public boolean hasVehicules(Long id) {
         return false;
+    }
+    @Override
+    public String simuler(Long idAgence, int jours, VehiculeOffre offre) {
+        throw new UnsupportedOperationException("La simulation n'est pas encore implémentée dans l'implémentation basique.");
     }
 }

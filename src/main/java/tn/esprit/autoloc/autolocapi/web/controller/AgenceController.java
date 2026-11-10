@@ -61,4 +61,10 @@ public class AgenceController {
     public void delete(@PathVariable Long id) {
         agenceService.deleteById(id);
     }
+    @GetMapping("{id}/simulation")
+    public String simuler(@PathVariable Long id,
+                          @RequestParam int jours,
+                          @RequestParam tn.esprit.autoloc.autolocapi.calcul.VehiculeOffre offre) {
+        return agenceService.simuler(id, jours, offre);
+    }
 }

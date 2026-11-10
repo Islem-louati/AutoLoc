@@ -3,9 +3,10 @@ package tn.esprit.autoloc.autolocapi.service;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import tn.esprit.autoloc.autolocapi.Utils;
+import tn.esprit.autoloc.autolocapi.calcul.VehiculeOffre;
 import tn.esprit.autoloc.autolocapi.domain.Agence;
 import tn.esprit.autoloc.autolocapi.repository.IAgenceRepository;
- @Primary
+
 @Service
 public class AgenceServiceImpl extends GenericServiceImpl<Agence, Long> implements IAgenceService {
 
@@ -46,4 +47,8 @@ public class AgenceServiceImpl extends GenericServiceImpl<Agence, Long> implemen
     public boolean hasVehicules(Long id) {
         return !findById(id).getVehicules().isEmpty();
     }
+     @Override
+     public String simuler(Long idAgence, int jours, VehiculeOffre offre) {
+         throw new UnsupportedOperationException("La simulation n'est pas encore implémentée dans l'implémentation basique.");
+     }
 }
