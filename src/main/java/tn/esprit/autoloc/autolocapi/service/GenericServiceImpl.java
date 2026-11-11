@@ -38,7 +38,7 @@ public abstract class GenericServiceImpl<T, ID> implements IGenericService<T, ID
     @Override
     public T findById(ID id) {
         return repository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException(getEntityName() + " introuvable avec l'id " + id));
+                .orElseThrow(() -> new ResourceNotFoundException(getEntityName() + " introuvable avec l'id " + id, id.toString()));
     }
 
     @Override
@@ -59,7 +59,7 @@ public abstract class GenericServiceImpl<T, ID> implements IGenericService<T, ID
     @Override
     public void deleteById(ID id) {
         if (!repository.existsById(id)) {
-            throw new ResourceNotFoundException(getEntityName() + " introuvable avec l'id " + id);
+            throw new ResourceNotFoundException(getEntityName() + " introuvable avec l'id " + id, id.toString());
         }
         repository.deleteById(id);
     }

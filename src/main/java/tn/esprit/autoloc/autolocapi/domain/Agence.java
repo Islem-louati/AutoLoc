@@ -34,9 +34,22 @@ public class Agence {
 
     @Column(nullable = false, length = 20)
     private String telephone;
+    @Column(nullable = false)
+    private Integer effectif = 0;
+
     @OneToMany(mappedBy = "agence", fetch = FetchType.LAZY)
     private Set<Employe> employes = new HashSet<>();
+
     @OneToMany(mappedBy = "agence", fetch = FetchType.LAZY)
     private Set<Vehicule> vehicules = new HashSet<>();
 
+    public void addEmploye(Employe employe) {
+        this.employes.add(employe);
+        employe.setAgence(this); // Symétrie : l'employé pointe aussi vers l'agence
+    }
+
+    public void removeEmploye(Employe employe) {
+        this.employes.remove(employe);
+        employe.setAgence(null); // Symétrie : on retire l'agence de l'employé
+    }
 }

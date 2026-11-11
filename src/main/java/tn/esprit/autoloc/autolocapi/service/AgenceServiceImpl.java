@@ -1,11 +1,13 @@
 package tn.esprit.autoloc.autolocapi.service;
 
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import tn.esprit.autoloc.autolocapi.Utils;
 import tn.esprit.autoloc.autolocapi.calcul.VehiculeOffre;
 import tn.esprit.autoloc.autolocapi.domain.Agence;
+import tn.esprit.autoloc.autolocapi.domain.Employe;
 import tn.esprit.autoloc.autolocapi.repository.IAgenceRepository;
+
+import java.util.List;
 
 @Service
 public class AgenceServiceImpl extends GenericServiceImpl<Agence, Long> implements IAgenceService {
@@ -47,8 +49,16 @@ public class AgenceServiceImpl extends GenericServiceImpl<Agence, Long> implemen
     public boolean hasVehicules(Long id) {
         return !findById(id).getVehicules().isEmpty();
     }
-     @Override
-     public String simuler(Long idAgence, int jours, VehiculeOffre offre) {
-         throw new UnsupportedOperationException("La simulation n'est pas encore implémentée dans l'implémentation basique.");
-     }
+
+    @Override
+    public String simuler(Long idAgence, int jours, VehiculeOffre offre) {
+        throw new UnsupportedOperationException("La simulation n'est pas encore implémentée dans l'implémentation basique.");
+    }
+
+    // AJOUT : Implémentation abstraite pour satisfaire l'interface
+
+    @Override
+    public Agence addEmployesToAgence(Long idAgence, List<Employe> employes) {
+        throw new UnsupportedOperationException("L'ajout d'employés n'est pas implémenté dans l'implémentation basique.");
+    }
 }

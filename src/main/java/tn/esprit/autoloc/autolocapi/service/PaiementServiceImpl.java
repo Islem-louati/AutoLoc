@@ -23,7 +23,7 @@ public class PaiementServiceImpl implements IPaiementService {
     @Override
     public Paiement findById(Long id) {
         return repository.findById(id)
-                .orElseThrow(() -> new tn.esprit.autoloc.autolocapi.exception.ResourceNotFoundException("Paiement"));
+                .orElseThrow(() -> new tn.esprit.autoloc.autolocapi.exception.ResourceNotFoundException("Paiement", id.toString()));
     }
 
     @Override
