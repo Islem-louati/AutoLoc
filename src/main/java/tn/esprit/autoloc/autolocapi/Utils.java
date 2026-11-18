@@ -1,7 +1,12 @@
 package tn.esprit.autoloc.autolocapi;
 
-public class Utils {
-    public static boolean isNotEmpty(String str){
-        return str != null && !str.trim().isEmpty();
+public final class Utils {
+
+    private Utils() {
+        // classe utilitaire : ne pas instancier
+    }
+
+    public static boolean isNotEmpty(String value) {
+        return value != null && !value.trim().isEmpty();
     }
 }

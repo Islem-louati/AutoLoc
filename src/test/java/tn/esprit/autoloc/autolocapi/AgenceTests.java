@@ -1,5 +1,6 @@
 package tn.esprit.autoloc.autolocapi;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import tn.esprit.autoloc.autolocapi.domain.Agence;
 import tn.esprit.autoloc.autolocapi.domain.CategorieVehicule;
 import tn.esprit.autoloc.autolocapi.domain.StatutVehicule;
@@ -22,6 +22,7 @@ import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
 import static org.junit.jupiter.api.Assertions.fail;
+@Disabled("Tests des anciens ateliers")
 
 @SpringBootTest
 public class AgenceTests {

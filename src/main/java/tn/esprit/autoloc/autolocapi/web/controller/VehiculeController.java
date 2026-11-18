@@ -72,7 +72,7 @@ public class VehiculeController {
     @Operation(summary = "Affecter une agence à un véhicule")
     @ApiResponse(responseCode = "204", description = "Véhicule affecté")
     @ApiResponse(responseCode = "404", description = "Véhicule ou agence introuvable")
-    @PutMapping("{id}/affecter-agence/{agenceId}") // <-- AJOUTER /{agenceId}
+    @PutMapping("{id}/affecter-agence/{agenceId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public Vehicule affecterAgence(@PathVariable Long id, @PathVariable Long agenceId) {
         return iVehiculeService.affecterAgence(id, agenceId);
