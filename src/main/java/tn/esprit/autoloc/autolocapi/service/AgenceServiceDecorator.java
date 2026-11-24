@@ -46,9 +46,10 @@ public class AgenceServiceDecorator extends AgenceServiceImpl {
         }
 
         // Mise à jour du total dans le rapport (si on utilise l'interface)
-        if (rapport instanceof tn.esprit.autoloc.autolocapi.io.RapportConsole) {
-            ((tn.esprit.autoloc.autolocapi.io.RapportConsole) rapport).setTotal(totalGeneral);
+        if (rapport instanceof tn.esprit.autoloc.autolocapi.io.RapportConsole rapportConsole) {
+            rapportConsole.setTotal(totalGeneral);
         }
+
 
         return "Rapport généré. Total : " + totalGeneral + " DT";
     }

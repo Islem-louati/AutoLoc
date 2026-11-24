@@ -1,17 +1,20 @@
-// package tn.esprit.autoloc.autolocapi.io;
 package tn.esprit.autoloc.autolocapi.io;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class RapportConsole implements IRapport {
+    private static final Logger log = LoggerFactory.getLogger(RapportConsole.class);
     private double total = 0;
 
     @Override
     public void afficherEntete(String entete) {
-        System.out.println("=== " + entete + " ===");
+        log.info("=== {} ===", entete);
     }
 
     @Override
     public void afficherLigne(String ligne) {
-        System.out.println(ligne);
+        log.info(ligne);
     }
 
     @Override
